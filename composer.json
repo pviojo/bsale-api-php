@@ -1,0 +1,22 @@
+{
+    "name": "pviojo/bsale-api-php",
+    "description": "Bsale API package for PHP",
+		"homepage": "http://github.com/pviojo/bsale-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pablo Viojo",
+            "email": "pviojo@gmail.com"
+        }
+    ],
+		"require": {
+        "rmccue/requests": "^1.6",
+        "pviojo/utils": "dev-master",
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bsale\\": "src/Bsale"
+        }
+    }
+}
