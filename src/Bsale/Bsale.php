@@ -14,13 +14,27 @@ class Bsale{
 		}
 	}
 	
-	function setToken($token){
+	protected function setToken($token){
 		$this->token = $token;
 		return $this;
 	}
 
-	function getToken(){
+	protected	function getToken(){
 		return $this->token;
 	}
+
+	protected function _prepareHeaders(){
+		return array(
+			'access_token' => $this->getToken(),
+			'Accept' => 'application/json',
+			'Content-Type' => 'application/json'
+		);
+	}
+	protected function _url($endpoint){
+		return $this->baseUrl . $endpoint;
+	}
+
+	
+
 
 }

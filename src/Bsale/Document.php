@@ -58,28 +58,33 @@ class Document extends Bsale{
 		return $this;
 	}
 
-	function get(){
+	function getData(){
 		return $this->data;
 	}
 
 	function generate(){
-		$url = $this->baseUrl . '/v1/documents.json';
+		$url = $this->_url('/v1/documents.json');
 		$data = json_encode($this->data);
 
-		$headers = array(
-			'access_token' => $this->getToken(),
-			'Accept' => 'application/json',
-			'Content-Type' => 'application/json'
-		);
-
-		$request = \Requests::post($url, $headers, $data);
+		$request = \Requests::post($url, $this->_prepareHeaders(), $data);
 		if($request->body){
 			$this->response = json_decode($request->body, true);
 		}
 		return $this;
 	}
 
-	function getGeneratedDocument(){
+	function load($id){
+		$url = $this->_url('/v1/documents/' . $id . '.json');
+		$request = \Requests::get($url, $this->_prepareHeaders(), $get);
+		if($request->body){
+			$this->response = json_decode($request->body, true);
+		} else {
+			$this->response = null;
+		}
+		return $this;
+	}
+
+	function getDocument(){
 		return $this->response;
 	}
 
