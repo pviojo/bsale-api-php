@@ -39,17 +39,17 @@ class Document extends Bsale{
 
 	function setEmissionDate($ts){
 		if(!is_numeric($ts)){
-			$ts = strtotime($date);
+			$ts = strtotime($ts);
 		}
-		$this->data['emissionDate'] = $date;
+		$this->data['emissionDate'] = $ts;
 		return $this;
 	}
 
 	function setExpirationDate($ts){
 		if(!is_numeric($ts)){
-			$ts = strtotime($date);
+			$ts = strtotime($ts);
 		}
-		$this->data['expirationDate'] = $date;
+		$this->data['expirationDate'] = $ts;
 		return $this;
 	}
 
