@@ -18,6 +18,7 @@ class Document extends Bsale{
 			'expirationDate'=>time(),
 			'declareSii'=>1
 		);
+		$this->data = $data;
 		return $this;
 	}
 
